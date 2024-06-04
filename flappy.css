@@ -10,7 +10,7 @@ canvas {
     display: block;
     margin: 50px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
-    background-image: url(/flappy/img/fondo.jpg);
+    background-image: url(./img/fondo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 1;

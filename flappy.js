@@ -7,6 +7,7 @@ fImg.src = 'img/ave.png';
 fImg.onload = function() {
     loop();
 };
+
 const FLAP_SPEED = -4;
 const BIRD_WIDTH = 50;
 const BIRD_HEIGHT = 50;
@@ -131,13 +132,13 @@ function endGame (){
     showEndMenu();
 }
 
-function loop(){
+function loop() {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
     ctx.drawImage(fImg, birdX, birdY, scaledBirdWidth, scaledBirdHeight);
     
-    ctx.fillStyle = '#333';
-    ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY);
-    ctx.fillRect(pipeX, pipeY + PIPE_GAP, PIPE_WIDTH, canvas.height - pipeY);
+    ctx.fillStyle = '#15ff00';
+    ctx.fillRect(pipeX, 0, PIPE_WIDTH, pipeY - PIPE_GAP); 
+    ctx.fillRect(pipeX, pipeY + PIPE_GAP, PIPE_WIDTH, canvas.height - pipeY - PIPE_GAP); 
 
     if (collisionCheck()){
         endGame();
@@ -145,7 +146,7 @@ function loop(){
     }
 
     pipeX -= 1.5;
-    if (pipeX < -50) {
+    if (pipeX < -PIPE_WIDTH) { 
         pipeX = 400;
         pipeY = Math.random() * (canvas.height - PIPE_GAP) + PIPE_WIDTH;
     }
